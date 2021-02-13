@@ -7,7 +7,7 @@ class Config(object):
                                    'templates')
     ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
     APP = None
-    SQLALCHEMY_DATABASE_URI  = 'sqlite:///'+os.path.join(ROOT_DIR, 'database.db')
+    SQLALCHEMY_DATABASE_URI  = os.environ.get('DATABASE_URL', 'sqlite:///'+os.path.join(ROOT_DIR, 'database.db'))
 
 class DevelopmentConfig(Config):
     TESTING = True
